@@ -5,7 +5,7 @@ Solid App dealing with JSON Data and rendering its data without network calls.
 Ultilize Forloop to render the data into the UI
 Added additonal modifiers and nasa logo.
 intoduced a bug while adding toolbar modified with TabBar item and HSTACK
-The page jumped during navigation, navigationbartitledisplaymode corrected the issue.  
+The page jumped during navigation, navigationBarTitleDisplayMode corrected the issue.  
 
 
 
