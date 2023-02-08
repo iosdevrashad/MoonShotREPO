@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+
     let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
     let missions: [Mission] = Bundle.main.decode("missions.json")
     
@@ -32,7 +33,7 @@ struct ContentView: View {
                                 
                                 VStack {
                                     Text(mission.displayName)
-                                        .font(.headline)
+                                        .font(.title3).italic()
                                         .foregroundColor(.white)
                                     
                                     Text(mission.formattedLaunchDate)
@@ -47,11 +48,22 @@ struct ContentView: View {
                             .overlay(RoundedRectangle(cornerRadius: 10).stroke(.lightBackground))
                         }
                     }
-                    
                 }
                 .padding([.horizontal, .bottom])
             }
-            .navigationTitle("Moonshot")
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    HStack {
+                        Text("The Expeditions").font(.title).bold().italic()
+                        Spacer()
+                        Image("nasa")
+                            .resizable()
+                            .frame(width: 80, height: 80)
+                            .clipShape(Capsule(style:.circular))
+                    }
+                }
+            }
+    
             .background(.darkBackground)
             .preferredColorScheme(.dark)
         }

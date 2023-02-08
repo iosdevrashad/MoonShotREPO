@@ -25,9 +25,7 @@ struct MissionView: View {
                         .scaledToFit()
                         .frame(maxWidth: geometry.size.width * 0.6)
                         .padding(.top)
-                    
-                 
-                    
+            
                     VStack(alignment: .leading) {
                         Rectangle()
                             .frame(height: 2)
@@ -35,10 +33,11 @@ struct MissionView: View {
                             .padding(.vertical)
                         
                         Text("Mission Highlights")
-                            .font(.title.bold())
+                            .font(.largeTitle.bold().italic())
                             .padding(.bottom, 5)
                         
                         Text(mission.description)
+                            .font(.callout.bold().italic())
                         
                         Rectangle()
                             .frame(height: 2)
@@ -46,11 +45,8 @@ struct MissionView: View {
                             .padding(.vertical)
                         
                         Text("Crew")
-                            .font(.title.bold())
+                            .font(.largeTitle.bold().italic())
                             .padding(.bottom, 5)
-                        
-                        
-                        
                     }
                     .padding(.horizontal)
                 }
@@ -73,34 +69,44 @@ struct MissionView: View {
                                     VStack(alignment: .leading) {
                                         Text(crewMember.astronaut.name)
                                             .foregroundColor(.white)
-                                            .font(.headline)
+                                            .font(.headline).bold(true)
                                         
                                         Text(crewMember.role)
                                             .foregroundColor(.secondary)
                                     }
                                 }
                                 .padding(.horizontal)
+                                Spacer(minLength: 10)
                             }
                         }
                     }
                 }
             }
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    HStack {
+                        Text(mission.displayName).font(.title).bold().italic()
+                        Spacer()
+                        Image("nasa")
+                            .resizable()
+                            .frame(width: 80, height: 80)
+                            .clipShape(Capsule(style:.circular))
+                    }
+                }
+            }
+            .navigationBarTitleDisplayMode(.inline)
+            .background(.darkBackground)
         }
-        .navigationTitle(mission.displayName)
-        .navigationBarTitleDisplayMode(.inline)
-        .background(.darkBackground)
     }
     
     init(mission: Mission, astronauts: [String: Astronaut]) {
         self.mission = mission
-        
         self.crew = mission.crew.map { member in
             if let astronaut = astronauts[member.name] {
                 return CrewMember(role: member.role, astronaut: astronaut)
             } else {
                 fatalError("Missing \(member.name)")
             }
-            
         }
     }
 }

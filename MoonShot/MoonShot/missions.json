@@ -1,7 +1,8 @@
 [
 	{
 		"id": 1,
-		"crew": [
+        "launchDate": "1967-02-21",
+        "crew": [
             {
                 "name": "grissom",
                 "role": "Command Pilot"

@@ -48,6 +48,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DC065E3729934CBB0068EAA5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DCB013B829105C81006AD154 /* Mission.swift */,
+				DCB013B429104E5C006AD154 /* Astronaut.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DC065E3829934CE20068EAA5 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				DCB013B629104EDB006AD154 /* Bundle-Decodable.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		DC065E3929934D610068EAA5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DCB013BC29106EF1006AD154 /* MissionView.swift */,
+				DCB013BE2910799B006AD154 /* AstronautView.swift */,
+				DCB013A429103790006AD154 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DC065E3A29934D930068EAA5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DCB013BA29106B66006AD154 /* Color-Theme.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		DCB0139629103790006AD154 = {
 			isa = PBXGroup;
 			children = (
@@ -67,17 +102,14 @@
 		DCB013A129103790006AD154 /* MoonShot */ = {
 			isa = PBXGroup;
 			children = (
-				DCB013B429104E5C006AD154 /* Astronaut.swift */,
-				DCB013B829105C81006AD154 /* Mission.swift */,
-				DCB013B629104EDB006AD154 /* Bundle-Decodable.swift */,
+				DC065E3A29934D930068EAA5 /* Extensions */,
+				DC065E3929934D610068EAA5 /* Views */,
+				DC065E3829934CE20068EAA5 /* Network */,
+				DC065E3729934CBB0068EAA5 /* Model */,
 				DCB013A229103790006AD154 /* MoonShotApp.swift */,
-				DCB013BE2910799B006AD154 /* AstronautView.swift */,
-				DCB013A429103790006AD154 /* ContentView.swift */,
-				DCB013BC29106EF1006AD154 /* MissionView.swift */,
 				DCB013B029104660006AD154 /* astronauts.json */,
 				DCB013B229104667006AD154 /* missions.json */,
 				DCB013A629103791006AD154 /* Assets.xcassets */,
-				DCB013BA29106B66006AD154 /* Color-Theme.swift */,
 				DCB013A829103791006AD154 /* Preview Content */,
 			);
 			path = MoonShot;

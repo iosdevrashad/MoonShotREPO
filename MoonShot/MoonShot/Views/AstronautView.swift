@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct AstronautView: View {
+    
+    @State private var showNavigationBar = false
+    
     let astronaut: Astronaut
     
     var body: some View {
@@ -15,15 +18,29 @@ struct AstronautView: View {
             VStack {
                 Image(astronaut.id)
                     .resizable()
+                    .cornerRadius(8)
                     .scaledToFit()
-                
+                    .padding()
+
                 Text(astronaut.description)
                     .padding()
+                    .font(.body.bold()).italic()
             }
         }
-        .background(.darkBackground)
-        .navigationTitle(astronaut.name)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                HStack {
+                    Text(astronaut.name).font(.callout).bold().italic()
+                    Spacer()
+                    Image("nasa")
+                        .resizable()
+                        .frame(width: 80, height: 80)
+                        .clipShape(Capsule(style:.circular))
+                }
+            }
+        }
         .navigationBarTitleDisplayMode(.inline)
+        .background(.darkBackground)
     }
 }
 
